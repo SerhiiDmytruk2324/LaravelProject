@@ -6,18 +6,22 @@ use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 
 /**
- * App\Models\BlogPost
+ * Class BlogPost
  *
+ * @package App/Models
+ *
+ * @property \App\Models\BlogCategory $category
+ * @property \App\Models\User         $user
+ * @property string                   $title
+ * @property string                   $slug
+ * @property string                   $content_html
+ * @property string                   $content_raw
+ * @property string                   $excerpt
+ * @property string                   $published_at
+ * @property boolean                  $is_published
  * @property int $id
  * @property int $category_id
  * @property int $user_id
- * @property string $slug
- * @property string $title
- * @property string|null $excerpt
- * @property string $content_raw
- * @property string $content_html
- * @property int $is_published
- * @property string|null $published_at
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property string|null $deleted_at
@@ -45,6 +49,18 @@ use Illuminate\Database\Eloquent\SoftDeletes;
 class BlogPost extends Model
 {
     use SoftDeletes;
+
+    protected $fillable
+        =[
+            'title',
+            'slug',
+            'category_id',
+            'excerpt',
+            'content_raw',
+            'is_published',
+            'published_at',
+            'user_id',
+        ];
 
     /**
      * Категория статьи.

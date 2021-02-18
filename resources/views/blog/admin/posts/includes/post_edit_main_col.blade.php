@@ -39,7 +39,7 @@
                             <textarea name="content_raw"
                                       id="content_raw"
                                       class="form-control"
-                                      rows="20"{{ old('content_raw', $item->content_raw) }}></textarea>
+                                      rows="20">{{ old('content_raw', $item->content_raw) }}</textarea>
                         </div>
                     </div>
                     <div class="tab-pane" id="adddata" role="tabpanel">
@@ -52,8 +52,9 @@
                                     required>
                                 @foreach($categoryList as $categoryOption)
                                     <option value="{{ $categoryOption->id }}"
-                                    @if($categoryOption->id == $item->category_id) selected @endif>
-                                        {{ $categoryOption->id }}. {{ $categoryOption->title }}
+                                         @if($categoryOption->id == $item->category_id) selected @endif>
+{{--                                        {{ $categoryOption->id }}. {{ $categoryOption->title }}--}}
+                                        {{ $categoryOption->id }}
                                     </option>
                                 @endforeach
                             </select>
@@ -77,7 +78,7 @@
                         <div class="form-check">
                             <input name="is_published"
                                 type="hidden"
-                                value="0">
+                                value="1">
 
                             <input name="is_published"
                                     type="checkbox"
